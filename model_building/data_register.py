@@ -10,6 +10,13 @@ repo_type = "dataset"
 # Initialize API client
 api = HfApi(token=os.getenv("HF_TOKEN"))
 
+# Dynamically determine the project root and the path to the data folder
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(script_dir)
+data_folder_path = os.path.join(project_root, "data")
+
+print(f"Resolved data_folder_path: {data_folder_path}")
+
 # Step 1: Check if the space exists
 try:
     api.repo_info(repo_id=repo_id, repo_type=repo_type)
@@ -20,8 +27,7 @@ except RepositoryNotFoundError:
     print(f"Space '{repo_id}' created.")
 
 api.upload_folder(
-    #folder_path="/content/drive/MyDrive/MastersDegreeStudy/PGP_AI_ML/tourism_project/data/",
-    folder_path="../data/",
+    folder_path=data_folder_path,
     repo_id=repo_id,
     repo_type=repo_type,
 )
