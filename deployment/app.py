@@ -13,7 +13,7 @@ MARITALSTATUS_MAP = {'Divorced': 0, 'Married': 1, 'Single': 2}
 DESIGNATION_MAP = {'AVP': 0, 'Executive': 1, 'Manager': 2, 'Senior Manager': 3, 'VP': 4}
 
 # Download and load the model
-MODEL_REPO_ID = "deepakpathania/tourism_xgboost_model"
+MODEL_REPO_ID = "deepakpathania/tourism-xgboost-model"
 MODEL_FILENAME = "xgboost_model/best_tourism_model_v1.joblib"
 
 try:
