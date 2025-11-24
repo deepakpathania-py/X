@@ -1,0 +1,8 @@
+pandas
+scikit-learn
+xgboost
+joblib
+mlflow==3.0.1
+pyngrok==7.2.12
+streamlit
+huggingface_hub
