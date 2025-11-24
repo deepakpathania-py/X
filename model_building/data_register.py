@@ -3,6 +3,7 @@ from huggingface_hub import HfApi, create_repo
 import os
 
 
+
 repo_id = "deepakpathania/tourism-dataset"
 repo_type = "dataset"
 
@@ -19,7 +20,8 @@ except RepositoryNotFoundError:
     print(f"Space '{repo_id}' created.")
 
 api.upload_folder(
-    folder_path="data/",
+    #folder_path="/content/drive/MyDrive/MastersDegreeStudy/PGP_AI_ML/tourism_project/data/",
+    folder_path="../data/",
     repo_id=repo_id,
     repo_type=repo_type,
 )
