@@ -19,6 +19,10 @@ print("Dataset loaded successfully.")
 # Drop the unique identifier and 'Unnamed: 0' column if it exists
 df.drop(columns=['CustomerID', 'Unnamed: 0'], errors='ignore', inplace=True)
 
+df['Gender'] = df['Gender'].replace('Fe Male', 'Female')
+print("Gender column updated: 'Fe Male' entries replaced with 'Female'.")
+print("New unique values in Gender column:", df['Gender'].unique())
+
 # Encoding categorical columns
 label_encoder = LabelEncoder()
 for column in df.select_dtypes(include='object').columns:

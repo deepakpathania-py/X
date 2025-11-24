@@ -7,7 +7,7 @@ import os
 # --- Mappings for Label Encoding (based on alphabetical sort of unique values from original data) ---
 TYPEOFCONTACT_MAP = {'Company Invited': 0, 'Self Inquiry': 1}
 OCCUPATION_MAP = {'Free Lancer': 0, 'Large Business': 1, 'Salaried': 2, 'Small Business': 3}
-GENDER_MAP = {'Fe Male': 0, 'Female': 1, 'Male': 2, 'Unaware': 3}
+GENDER_MAP = {'Female': 0, 'Male': 1} # Corrected mapping based on unique values in cleaned data
 PRODUCTPITCHED_MAP = {'Basic': 0, 'Deluxe': 1, 'King': 2, 'Standard': 3, 'Super Deluxe': 4}
 MARITALSTATUS_MAP = {'Divorced': 0, 'Married': 1, 'Single': 2}
 DESIGNATION_MAP = {'AVP': 0, 'Executive': 1, 'Manager': 2, 'Senior Manager': 3, 'VP': 4}
@@ -38,13 +38,13 @@ type_of_contact = st.selectbox("Type of Contact", list(TYPEOFCONTACT_MAP.keys())
 city_tier = st.selectbox("City Tier", [1, 2, 3])
 duration_of_pitch = st.slider("Duration of Pitch (minutes)", min_value=5, max_value=100, value=15)
 occupation = st.selectbox("Occupation", list(OCCUPATION_MAP.keys()))
-gender = st.selectbox("Gender", list(GENDER_MAP.keys())) # Using full list due to EDA observation
+gender = st.selectbox("Gender", list(GENDER_MAP.keys()))
 number_of_person_visiting = st.slider("Number of Persons Visiting", min_value=1, max_value=5, value=3)
 number_of_followups = st.slider("Number of Follow-ups", min_value=1, max_value=6, value=3)
 product_pitched = st.selectbox("Product Pitched", list(PRODUCTPITCHED_MAP.keys()))
 preferred_property_star = st.selectbox("Preferred Property Star", [3.0, 4.0, 5.0])
 marital_status = st.selectbox("Marital Status", list(MARITALSTATUS_MAP.keys()))
-number_of_trips = st.slider("Number of Trips Annually", min_value=1, max_value=25, value=3)
+number_of_trips = st.slider("NumberOfTrips", min_value=1, max_value=25, value=3)
 passport = st.selectbox("Passport Holder?", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
 pitch_satisfaction_score = st.slider("Pitch Satisfaction Score", min_value=1, max_value=5, value=3)
 own_car = st.selectbox("Owns Car?", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
